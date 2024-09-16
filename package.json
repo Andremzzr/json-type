@@ -3,6 +3,10 @@
   "displayName": "JsonType",
   "description": "",
   "version": "0.0.1",
+  "repository": {
+  "type": "git",
+  "url": "git://github.com/Andremzzr/json-type"
+  },
   "engines": {
     "vscode": "^1.93.0"
   },
