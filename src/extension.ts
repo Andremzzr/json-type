@@ -16,11 +16,25 @@ function inferType(value: any): string {
   }
 }
 
+function capitalizeFirstChar(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+
+
 function generateInterface(jsonData: any, interfaceName: string = 'Root'): string {
   let result = `interface ${interfaceName} {\n`;
 
   for (let key in jsonData) {
-    const type = inferType(jsonData[key]);
+    let type = inferType(jsonData[key]);
+    console.log(type);      
+    if (type === 'object'){
+      const interfaceTitle = capitalizeFirstChar(key);
+  
+      const newInterface = generateInterface(jsonData[key], interfaceTitle);
+      result = newInterface + result;
+      type = interfaceTitle;
+    }
     result += `  ${key}: ${type};\n`;
   }
 

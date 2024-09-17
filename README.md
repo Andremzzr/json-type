@@ -1,1 +1,1 @@
-Transform your API's returns into Typescript interfaces
+Transform your API's returns into Typescript interfaces.
